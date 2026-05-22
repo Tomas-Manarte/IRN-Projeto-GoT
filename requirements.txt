@@ -3,6 +3,7 @@ matplotlib
 jupyter
 notebook
 ipykernel
+scikit-learn
 networkx
 scipy
 torch
