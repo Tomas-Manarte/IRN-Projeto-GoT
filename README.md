@@ -5,18 +5,7 @@ Projeto GRC & IRN | ISCTE-Sintra | 2025/2026
 Análise da rede de coocorrências das personagens de Game of Thrones (T1–T8)
 usando teoria de grafos, redes complexas e Graph Convolutional Networks.
 
-## Estrutura do repositório
 
-```
-IRN-Projeto-GoT/
-├── data/                    # dataset (não incluído)
-│   ├── nodes/               # got-s1-nodes.csv ... got-s8-nodes.csv
-│   └── edges/               # got-s1-edges.csv ... got-s8-edges.csv
-├── entregavel_3/
-│   └── IRN_projeto_fase3_V2.ipynb   # notebook principal
-├── requirements.txt
-└── README.md
-```
 
 ## Setup
 
@@ -38,7 +27,7 @@ python -m venv .venv
 
 Ativar:
 
-- **Windows (PowerShell):** `.venv\Scripts\Activate.ps1`
+- **Windows (PowerShell) :** `.venv\Scripts\Activate.ps1`
 - **Windows (CMD):** `.venv\Scripts\activate.bat`
 - **Mac/Linux:** `source .venv/bin/activate`
 
