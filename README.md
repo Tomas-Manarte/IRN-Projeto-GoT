@@ -5,21 +5,13 @@ Projeto GRC & IRN | ISCTE-Sintra | 2025/2026
 Análise da rede de coocorrências das personagens de Game of Thrones (T1–T8)
 usando teoria de grafos, redes complexas e Graph Convolutional Networks.
 
-
-
 ## Setup
 
-### 1. Deszipar e abrir no VSCode
+### 1. Abrir o projeto
 
-Descompacta a pasta e abre-a no VSCode:
-
-```
-File → Open Folder → seleciona a pasta IRN-Projeto-GoT
-```
+Abre a pasta no VSCode ou no Jupyter.
 
 ### 2. Criar o ambiente virtual
-
-Abre o terminal no VSCode (`Ctrl + '`) e corre:
 
 ```bash
 python -m venv .venv
@@ -27,7 +19,7 @@ python -m venv .venv
 
 Ativar:
 
-- **Windows (PowerShell) :** `.venv\Scripts\Activate.ps1`
+- **Windows (PowerShell):** `.venv\Scripts\Activate.ps1`
 - **Windows (CMD):** `.venv\Scripts\activate.bat`
 - **Mac/Linux:** `source .venv/bin/activate`
 
@@ -37,51 +29,37 @@ Ativar:
 pip install -r requirements.txt
 ```
 
-Para a versão PyTorch Geometric (opcional):
+O `torch-geometric` pode precisar de instalação separada dependendo da versão do PyTorch:
 
 ```bash
-pip install torch-geometric
+pip install torch-geometric -f https://data.pyg.org/whl/torch-2.7.0+cpu.html
 ```
 
-Se não instalares o torch-geometric, o notebook funciona na mesma
-— usa apenas a GCN from-scratch.
+Se não instalar, o notebook funciona na mesma — usa a GCN from-scratch.
 
-### 4. Adicionar o dataset
+### 4. Dataset
 
-O dataset não está incluído. Descarrega de:
+O ficheiro `data/houses_titles.csv` está incluído no entregável.
 
+Os CSVs de nós e arestas por temporada devem ser descarregados de:
 https://github.com/mathbeveridge/gameofthrones
 
-Copia os ficheiros para dentro da pasta `data/` com esta estrutura:
-
-```
-data/
-├── nodes/
-│   ├── got-s1-nodes.csv
-│   ├── got-s2-nodes.csv
-│   └── ... (até s8)
-└── edges/
-    ├── got-s1-edges.csv
-    ├── got-s2-edges.csv
-    └── ... (até s8)
-```
+Depois de descarregar, colocar em `data/nodes/` e `data/edges/`.
 
 ### 5. Correr o notebook
 
-Abre o ficheiro `entregavel_3/IRN_projeto_fase3_V2.ipynb` no VSCode
-(precisa da extensão Jupyter instalada) e seleciona o kernel `.venv`
-quando pedido.
+Abre `entregavel_3/IRN_projeto_fase3_V10_final.ipynb` e usa
+**Kernel → Restart & Run All**.
 
-**Importante:** usa sempre `Kernel → Restart & Run All` para garantir
-que os resultados são reprodutíveis e os execution counts ficam sequenciais.
+## Estrutura do notebook
 
-## O que o notebook faz
-
-- **Etapa 1** — Carrega e valida os dados das 8 temporadas
-- **Etapa 2** — Métricas de rede (mundo pequeno, lei de potência, comunidades, centralidades)
-- **Etapa 3** — GCN from-scratch para prever sobrevivência + ablation study
-- **Etapa 4** — Simulação de robustez (remoção de hubs, Max-Flow, Mann-Whitney)
-- **Etapa 5** — Avaliação final (curva de loss, matriz de confusão, AUC)
+- **Etapa 1** — Dados e construção da rede
+- **Etapa 2** — Análise temporal com Girvan-Newman (T1–T8)
+- **Etapa 3** — Métricas da rede (clustering, mundo pequeno, lei de potência, modularidade, algoritmos from-scratch)
+- **Etapa 4** — Rede neuronal GCN (cálculos manuais, treino, ablation study)
+- **Etapa 5** — O que acontece quando removemos as personagens centrais?
+- **Etapa 6** — Avaliação final e conclusões
+- **Dashboard** — Painel interativo (Plotly)
 
 ## Grupo
 
